@@ -1,0 +1,151 @@
+.skill {
+    @extend %p-rel,
+    %of-hidden;
+
+    &__left {
+        ul {
+            @extend %flex;
+
+            li {
+                width: 120px;
+                background-color: $bg-color;
+                @extend %m-10,
+                %p-15,
+                %text-center;
+                box-shadow: 0px 0px 24px rgba(179, 181, 191, 0.42);
+                @include add-prefix(border-radius, (10px));
+
+                .skill {
+                    &__left {
+                        &--thumb {
+                            @extend %mb-10;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__center {
+
+
+        &-thumb {
+            text-align: center;
+
+            @include breakpoint(xl) {
+                @include add-prefix(transform, translateX(-50%));
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+
+                img {
+                    max-inline-size: 90%;
+                }
+
+            }
+        }
+    }
+
+    &__right {
+        @extend %ml-30;
+        @include breakpoint(lg) {
+            padding-left: 50px;
+        }
+        ul {
+            li {
+                @extend %flex,
+                %p-rel;
+
+                &:not(:last-child) {
+                    @extend %mb-20;
+                }
+
+                &::after,
+                &::before {
+                    @extend %p-abs;
+                }
+
+                &:not(:last-child) {
+                    &::after {
+                        width: 3px;
+                        height: 80%;
+                        left: -30px;
+                        top: 30px;
+                        background-color: $theme-color;
+                    }
+                }
+
+
+
+                &::before {
+                    width: 15px;
+                    height: 15px;
+                    left: -36px;
+                    top: 5px;
+                    background-color: $theme-color;
+                    @include add-prefix(border-radius, (100%))
+                }
+
+                .skill {
+                    &__right {
+                        &--year {
+                            width: 100%;
+                            @extend %mr-30;
+
+                            p {
+                                @extend %mb-0;
+                            }
+                        }
+
+                        &--content {
+                            width: auto;
+
+                            h5 {
+                                @extend %text-500,
+                                %mb-5;
+                            }
+
+                            p {
+                                @extend %mb-0;
+                                max-width: 250px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__title {
+        @extend %mb-30;
+    }
+
+    &__bars {
+        .progress {
+            background-color: $secondary-color;
+            border-radius: 99px;
+
+            &-bar {
+                background-color: $theme-color;
+                border-radius: 99px;
+            }
+
+            &-name {
+                @extend %flex,
+                %align-items-center,
+                %justify-between;
+                margin-bottom: 8px;
+
+                p {
+                    @extend %mb-0;
+                }
+            }
+        }
+
+        &-item {
+            &:not(:last-child) {
+                @extend %mb-40;
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+.footer {
+    background-color: $dark-color2;
+
+    &__content {
+        @extend %text-center;
+        padding-block: 60px;
+    }
+
+    &__logo {
+        @extend %mb-30;
+    }
+
+    &__menu {
+        @extend %flex,
+        %justify-center,
+        %align-items-center;
+        gap: 20px;
+
+        &-link {
+            font-weight: 700;
+            color: $white-color;
+        }
+    }
+
+    &__copyright {
+        @extend %text-center;
+        border-top: 1px solid rgba($white-color, $alpha: .1);
+        padding-block: 1rem;
+        color: $white-color;
+    }
+}

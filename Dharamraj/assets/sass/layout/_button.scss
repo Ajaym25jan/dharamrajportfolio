@@ -1,0 +1,36 @@
+.default-btn {
+    line-height: 46px;
+    padding-inline: 30px;
+    border: 2px solid transparent;
+    background-color: $theme-color;
+    @include add-prefix(border-radius, (4px));
+    @include transition(all .3s ease);
+    span {
+        color: $title-color;
+        @extend %d-block, %text-700, %text-capitalize;
+        @include transition(all .3s ease);
+    }
+    &:hover {
+        background-color: transparent;
+        border-color: $theme-color;
+        span {
+            color: $theme-color;
+        }
+    }
+    &.border__btn {
+        line-height: 46px;
+        border: 2px solid transparent;
+        background-color: transparent;
+        border-color: $white-color;
+        span {
+            color: $white-color;
+        }
+        &:hover {
+            background-color: $theme-color;
+            border-color: $theme-color;
+            span {
+                color: $title-color;
+            }
+        }
+    }
+}

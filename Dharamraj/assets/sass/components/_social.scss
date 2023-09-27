@@ -1,0 +1,22 @@
+.social {
+    @extend %flex,
+    %align-items-center;
+    gap: 20px;
+
+    &__link {
+        display: inline-grid;
+        place-items: center;
+        background-color: $theme-color;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+
+        i {
+            color: $title-color;
+        }
+
+        &:hover {
+            @include add-prefix(transform, translateY(-5px));
+        }
+    }
+}

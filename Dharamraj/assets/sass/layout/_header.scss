@@ -1,0 +1,143 @@
+.header {
+    background-color: $white-color;
+
+    &-fixed {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 99;
+        border-bottom: 2px solid $theme-color;
+        box-shadow: 0 10px 5px rgba($shadow-color, $alpha: 0.1);
+        // background-color: $secondary-color;
+    }
+
+    .navbar-toggler {
+        outline: none;
+        box-shadow: none;
+        display: grid;
+        place-items: center;
+        border: none;
+
+        &:not(.collapsed) {
+            .toggler-icon {
+                background-color: $theme-color;
+
+                @include add-prefix(transform, rotate(45deg));
+
+                &::before {
+                    @include add-prefix(transform, translateX(-10px));
+                    opacity: 0;
+                }
+
+                &::after {
+                    @include add-prefix(transform, rotate(-90deg) translateX(8px));
+                }
+            }
+        }
+
+        @include breakpoint(lg) {
+            display: none;
+        }
+    }
+
+    .toggler-icon {
+        @extend %d-inline-block,
+        %p-rel;
+        @include add-prefix(transition, $transition);
+        height: 3px;
+        width: 30px;
+        background-color: $black-color;
+        border-radius: 99px;
+
+        &::after,
+        &::before {
+            @extend %p-abs;
+            @include add-prefix(transition, $transition);
+            height: 3px;
+            width: 100%;
+            background-color: inherit;
+            border-radius: inherit;
+        }
+
+        &::before {
+            top: -8px;
+            left: 0;
+        }
+
+        &::after {
+            bottom: -8px;
+            left: 0;
+        }
+
+    }
+
+    .navbar-nav {
+        @extend %flex,
+        %align-items-center;
+
+
+        .nav-link {
+            font-family: $title-font;
+            @extend %text-700,
+            %text-capitalize;
+            color: $title-color;
+            padding: 10px;
+
+            @include breakpoint(lg) {
+                padding: 30px 15px;
+            }
+
+            &.active {
+                color: $theme-color;
+            }
+
+            &.focus,
+            &.hover {
+                color: initial !important;
+            }
+        }
+
+
+    }
+
+    .default-btn {
+        @include breakpoint(max-lg) {
+            display: none;
+        }
+
+        &:hover {
+            border-color: $theme-color;
+
+            span {
+                color: $theme-color;
+            }
+        }
+    }
+}
+
+
+
+/*=-=-=-======< Page header start here >==========-=-=-=-*/
+.page-header {
+    padding-block: 70px;
+
+    @include breakpoint(lg) {
+        padding-block: 100px;
+    }
+
+    @include breakpoint(xxl) {
+        padding-block: 120px;
+    }
+
+    .breadcrumb-item {
+
+        &:before,
+        &.active {
+            color: $black-color;
+        }
+
+    }
+}
+
+/*=-=-=-======< Page header end here >==========-=-=-=-*/

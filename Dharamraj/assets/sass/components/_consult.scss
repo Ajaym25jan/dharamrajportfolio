@@ -1,0 +1,46 @@
+.consult {
+    @extend %p-rel,
+    %of-hidden;
+
+
+    &__content {
+        h2 {
+            @extend %mb-40;
+        }
+    }
+
+    &__thumb {
+
+        img {
+            @include breakpoint(lg) {
+                position: absolute;
+                bottom: -40px;
+                right: 0;
+            }
+
+            @include breakpoint(xxl) {
+                right: 13%;
+            }
+        }
+    }
+
+    &__form {
+        .form-control {
+            background-color: transparent;
+            border: 0;
+            border-bottom: 1px solid rgba($theme-color, $alpha: .3);
+            border-radius: 0;
+
+            &:focus {
+                box-shadow: none;
+                border-color: $theme-color;
+            }
+
+
+        }
+
+        textarea {
+            min-height: 120px;
+        }
+    }
+}

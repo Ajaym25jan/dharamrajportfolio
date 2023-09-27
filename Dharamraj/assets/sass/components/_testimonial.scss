@@ -1,0 +1,260 @@
+.testimonial {
+    @extend %of-hidden;
+
+    &__content {
+
+        .section__header {
+            margin-bottom: 50px;
+
+            span {
+                background-color: $white-color;
+            }
+
+            h2 {
+                max-inline-size: 15ch;
+            }
+        }
+    }
+
+    &__item {
+
+
+        &--style2 {
+            background-color: $white-color;
+            box-shadow: 0px 0px 24px 0px $shadow-color;
+            padding: 25px 20px;
+            border-radius: 8px;
+
+
+            .testimonial {
+                &__author {
+                    @extend %flex,
+                    %align-items-center,
+                    %p-rel,
+                    %mb-10;
+                    gap: 20px;
+
+
+                    &:after {
+                        @extend %p-abs;
+                        @include add-prefix(transform, translateY(-50%));
+                        content: url(../images/testimonial/qoute.svg);
+                        right: 10px;
+                        top: 50%;
+                    }
+
+                    &-thumb {
+                        width: 70px;
+                        height: 70px;
+                        border-radius: 50%;
+                    }
+
+                    &-content {
+                        width: calc(100% - 90px);
+
+                        h4 {
+                            font-weight: 600;
+
+                            a {
+                                color: $title-color;
+                            }
+                        }
+
+                        p {
+                            @extend %mb-0;
+                        }
+                    }
+                }
+
+                &__content {
+                    p {
+                        @extend %mb-0;
+                    }
+                }
+            }
+        }
+
+        &--style3 {
+            @extend %p-rel;
+            background-color: $white-color;
+            box-shadow: 0px 0px 24px 0px $shadow-color;
+            padding: 25px 20px;
+            border-radius: 0;
+
+            &::after {
+                @extend %p-abs;
+                left: 30px;
+                bottom: -30px;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 30px 30px 0 0;
+                border-color: $white-color transparent transparent transparent;
+                filter: drop-shadow(5px 5px 5px rgba($shadow-color, $alpha:.15));
+            }
+
+
+            .testimonial {
+                &__author {
+                    @extend %p-rel,
+                    %mb-10;
+
+
+                    &:after {
+                        @extend %p-abs;
+                        @include add-prefix(transform, translateY(-50%));
+                        content: url(../images/testimonial/qoute.svg);
+                        right: 10px;
+                        top: 50%;
+                    }
+
+                    &-thumb {
+                        @extend %p-abs;
+                        left: 0;
+                        bottom: -110px;
+                        width: 70px;
+                        height: 70px;
+                        border: 2px solid $theme-color;
+                        border-radius: 50%;
+                    }
+
+                    &-content {
+                        width: calc(100% - 90px);
+
+                        h4 {
+                            font-weight: 600;
+
+                            a {
+                                color: $title-color;
+                            }
+                        }
+
+                        p {
+                            @extend %mb-0;
+                        }
+                    }
+                }
+
+                &__content {
+                    p {
+                        @extend %mb-0;
+                    }
+                }
+            }
+        }
+
+        &--style4 {
+            padding-top: 50px;
+
+            figure {
+                @extend %p-rel;
+
+                &:before {
+                    @extend %p-abs;
+                    content: url(../images/testimonial/qoute.svg);
+                    top: -40px;
+                    left: 0;
+                }
+            }
+        }
+
+        &--style6 {
+            @extend %text-center;
+            background-color: $white-color;
+            box-shadow: 0px 0px 24px 0px $shadow-color;
+            padding: 25px 20px;
+            border-radius: 8px;
+
+
+
+            .testimonial {
+                &__author {
+                    @extend %mb-15;
+
+                    &-thumb {
+                        @extend %mb-15;
+                        border-radius: 4px;
+                    }
+
+                    &-content {
+                        p {
+                            @extend %mb-0;
+                        }
+                    }
+                }
+
+                &__content {
+                    p {
+                        @extend %mb-0;
+                    }
+                }
+            }
+        }
+
+        blockquote {
+            @include font-size(16px);
+        }
+
+        .blockquote-footer {
+            @extend %mt-20;
+
+            h4 {
+                font-weight: 600;
+            }
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    &__slider {
+        @extend %of-hidden,
+        %p-rel;
+
+        &-nav {
+            @extend %flex,
+            %p-abs;
+            gap: 20px;
+            bottom: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        &-prev,
+        &-next {
+            display: inline-grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: $theme-color;
+            color: $title-color;
+            border-radius: 50%;
+        }
+    }
+
+    &__slider2 {
+        padding-inline: 24px;
+        padding-block-start: 30px;
+    }
+
+    &__slider3 {
+        padding-block-end: 120px;
+    }
+}
+
+
+//rating
+.rating {
+    @extend %flex,
+    %align-items-center,
+    %justify-center;
+    gap: 5px;
+
+    &__item {
+        i {
+            @include font-size(14px);
+            color: $theme-color;
+        }
+    }
+}

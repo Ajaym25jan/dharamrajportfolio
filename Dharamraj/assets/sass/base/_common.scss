@@ -1,0 +1,372 @@
+// all section padding top and bottom
+.padding-tb {
+	padding-top: 80px;
+	padding-bottom: 80px;
+
+	@include breakpoint(lg) {
+		padding-top: 120px;
+		padding-bottom: 120px;
+	}
+}
+
+.padding-bottom {
+	padding-bottom: 80px;
+
+	@include breakpoint(lg) {
+		padding-bottom: 120px;
+	}
+}
+
+// section header
+.section__header {
+	>span {
+		line-height: 36px;
+		background-color: $ash-color;
+		@extend %d-inline-block;
+		@extend %mb-15;
+		@extend %text-600;
+		@extend %text-capitalize;
+		letter-spacing: 0.15em;
+		padding-inline: 30px;
+		color: $title-color;
+		@include add-prefix(border-radius, (4px));
+	}
+
+	h2 {
+		@extend %mb-15;
+		text-transform: capitalize;
+	}
+
+	p {
+		@extend %text-300;
+		line-height: 28px;
+		@extend %mb-30;
+	}
+}
+
+.bg-ash {
+	background-color: $ash-color !important;
+}
+
+
+// preloder scss start
+.preloder-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+
+	.overlayDoor {
+
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			width: 50%;
+			height: 100%;
+			background: $dark-color2;
+			transition: 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+			transition-delay: 0.8s;
+		}
+
+		&:before {
+			left: 0;
+		}
+
+		&:after {
+			right: 0;
+		}
+	}
+
+	&.loaded {
+		.overlayDoor {
+			&:before {
+				left: -50%;
+			}
+
+			&:after {
+				right: -50%;
+			}
+		}
+
+		.overlayContent {
+			opacity: 0;
+			margin-top: -15px;
+		}
+	}
+
+	.overlayContent {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		transition: 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+	}
+}
+
+.loader {
+	width: 120px;
+	height: 120px;
+	border: 3px solid $theme-color;
+	border-bottom: 3px solid transparent;
+	border-radius: 50%;
+	position: relative;
+	animation: spin 1s linear infinite;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.inner {
+		width: 80px;
+		height: 80px;
+		border: 3px solid transparent;
+		border-top: 3px solid $theme-color;
+		border-left: 3px solid $theme-color;
+		border-radius: 50%;
+		animation: spinInner 1s linear infinite;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.inner-loding {
+			width: 55px;
+			height: 55px;
+			border: 3px solid transparent;
+			border-top: 3px solid $theme-color;
+			border-right: 3px solid $theme-color;
+			border-radius: 50%;
+			animation: spinInner-inner 1s linear infinite;
+		}
+	}
+}
+
+@keyframes spin {
+	0% {
+		@include add-prefix(transform, rotate(0deg));
+	}
+
+	100% {
+		@include add-prefix(transform, rotate(360deg));
+	}
+}
+
+@keyframes spinInner {
+	0% {
+		@include add-prefix(transform, rotate(0deg));
+	}
+
+	100% {
+		@include add-prefix(transform, rotate(-720deg));
+	}
+}
+
+@keyframes spinInner-inner {
+	0% {
+		@include add-prefix(transform, rotate(0deg));
+	}
+
+	100% {
+		@include add-prefix(transform, rotate(720deg));
+	}
+}
+
+// preloder scss end
+
+// scrollToTop
+
+.scrollToTop {
+	position: fixed;
+	bottom: -30%;
+	right: 5%;
+	z-index: 999;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	background-color: $theme-color;
+	text-align: center;
+	border-radius: 50%;
+	font-size: 24px;
+	@include add-prefix(animation, scroll-Top 5s linear infinite);
+	@include transition($transition);
+
+	&::after {
+		@extend%p-abs;
+		content: "\f148" !important;
+		font: var(--fa-font-solid);
+		top: 50%;
+		left: 0;
+		width: 100%;
+		font-size: 20px;
+		@include add-prefix(transform, translateY(-50%));
+		color: $title-color;
+	}
+
+	&:hover,
+	&:focus {
+		color: $white-color;
+	}
+}
+
+@keyframes scroll-Top {
+	0% {
+		@include add-prefix(transform, translateY(-15px));
+	}
+
+	50% {
+		@include add-prefix(transform, translateY(0px));
+	}
+
+	100% {
+		@include add-prefix(transform, translateY(-15px));
+	}
+}
+
+.wave-1,
+.wave-2 {
+	@extend %p-abs;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	left: 50%;
+	top: 50%;
+	@include add-prefix(transform, translate(-50%, -50%));
+	background-color: $theme-color;
+
+	&::after,
+	&::before {
+		@extend %p-abs;
+		background-color: $theme-color;
+
+		border-radius: 50%;
+		left: 50%;
+		top: 50%;
+		@include add-prefix(transform, translate(-50%, -50%));
+		z-index: 0;
+	}
+
+	&::after {
+		width: 30px;
+		height: 30px;
+		background: transparent;
+	}
+
+	&:before {
+		width: 40px;
+		height: 40px;
+	}
+}
+
+.wave-1 {
+	@include add-prefix(animation, pluse_animate 3s infinite linear);
+}
+
+.wave-2 {
+	&::before {
+		@include add-prefix(animation, pluse_animate 3s infinite linear);
+		-webkit-animation-delay: 1s;
+		animation-delay: 1s;
+		margin-left: 0;
+		margin-top: 0;
+	}
+}
+
+@keyframes pluse_animate {
+	0% {
+		opacity: 1;
+		@include add-prefix(transform, translate(-50%, -50%) scale(0.3));
+	}
+
+	100% {
+		opacity: 0;
+		@include add-prefix(transform, translate(-50%, -50%) scale(2));
+	}
+}
+
+//swiper paginatin style
+.swiper-pagination-bullet {
+	width: 10px;
+	height: 10px;
+	background-color: $theme-color;
+}
+
+
+
+
+// demo css
+.demo {
+	overflow: hidden;
+	transition: all .3s ease;
+	&__toggole {
+		position: fixed;
+		top: 150px;
+		right: 0;
+		padding: 10px 30px;
+		background: $theme-color;
+		color: $black-color;
+		font-weight: 700;
+		cursor: pointer;
+		z-index: 9;
+		i {
+			display: none;
+		}
+	}
+	&.open {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		z-index: 999;
+		background: rgba($black-color, $alpha: .9);
+		.demo {
+			&__lists {
+				left: 0;
+			}
+			&__toggole {
+				span {
+					display: none;
+				}
+				i {
+					display: block;
+				}
+			}
+		}
+	}
+	&__lists {
+		position: fixed;
+		top: 0;
+		left: -50%;
+		width: 300px;
+		height: 100vh;
+		overflow-y: auto;
+		z-index: 999;
+		background: $theme-color;
+		transition: all .3s ease;
+		ul {
+			padding: 30px;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			gap: 10px;
+			li {
+				// padding: 15px 0;
+				// border-bottom: 1px solid rgba($black-color, $alpha: .2);
+				width: 100%;
+				@include breakpoint(sm) {
+					width: calc(100% / 2 - 5px);
+				}
+				&:last-child {
+					border-bottom: none;
+				}
+				a {
+					img {}
+				}
+			}
+		}
+	}
+}

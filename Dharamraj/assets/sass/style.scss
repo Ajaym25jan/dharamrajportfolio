@@ -1,0 +1,71 @@
+/*!
+Template Name: Bio
+Template URI: 
+Author: PixiansStudioUIUX
+Author URI: 
+Description: Description
+Version: 1.0.0
+Text Domain: Bio
+Tags: porfolio, personal cv, cv, personal website, cv template, html5, bootstrap ,v-card,cv, bio, agency.
+
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Global CSS
+# Header CSS
+# Page Header
+# Banner
+# Main
+# Blog
+# Blog Widget
+# Contact Us
+#Footer
+--------------------------------------------------------------*/
+
+
+
+@charset "UTF-8";
+
+// 1.configuration and helpers
+@import "abstracts/variables",
+"abstracts/mixins";
+
+//2.vendors
+@import "vendors/normalize",
+"vendors/rfs";
+
+//3.Base stuff
+@import "base/typography",
+"base/common",
+"base/helpers",
+"base/fonts";
+
+@import "abstracts/extend";
+
+// 4.layout-related section
+@import "layout/button",
+"layout/about",
+"layout/contact",
+"layout/footer",
+"layout/header";
+
+// 5.components
+@import "components/banner",
+"components/services",
+"components/portfolio",
+"components/testimonial",
+"components/blog",
+"components/award",
+"components/feature",
+"components/consult",
+"components/social",
+"components/skill";
+
+// 6. Page-specific styles
+// @import "pages/home";
+
+// 7. Themes
+// @import "themes/default";

@@ -1,0 +1,131 @@
+.contact {
+    @extend %of-hidden;
+
+    &__info {
+        &-item {
+            @extend %flex,
+            %align-items-center;
+            gap: 20px;
+            background-color: $white-color;
+            padding: 24px 30px;
+            border-radius: 8px;
+
+            &:not(:last-child) {
+                @extend %mb-20;
+            }
+
+            &--transparent {
+                background-color: transparent;
+                padding: 0;
+            }
+        }
+
+        &-thumb {
+            width: 70px;
+            height: 70px;
+        }
+
+        &-content {
+            width: calc(100% - 90px);
+
+            h4 {
+                @extend %mb-5;
+                font-weight: 600;
+            }
+
+            p {
+                @extend %mb-0;
+                word-wrap: break-word;
+            }
+        }
+    }
+
+    &__form {
+        .form-control {
+            padding: 1rem 1.4rem;
+            border-radius: .5rem;
+            border: 1px solid transparent;
+
+            &:focus {
+                box-shadow: none;
+                border-color: rgba($theme-color, $alpha: .5);
+            }
+        }
+
+        textarea {
+            min-height: 250px;
+        }
+
+        .default-btn {
+            margin-top: 40px;
+            line-height: 56px;
+        }
+    }
+
+    &__map {
+        @extend %w-100,
+        %h-100;
+        box-shadow: 0px 0px 24px 0px $shadow-color;
+
+
+        iframe {
+            height: inherit;
+            width: inherit;
+            min-height: 300px;
+        }
+    }
+
+
+    &--photography {
+        .contact {
+            &__form {
+                .form-control {
+                    background-color: $ash-color;
+                }
+            }
+        }
+    }
+
+    &--fashion {
+        @extend %p-rel;
+
+        .contact {
+            &__map {
+                box-shadow: none;
+
+                @include breakpoint(lg) {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: 50%;
+
+
+                    iframe {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    &--medical {
+        .contact__info-item {
+            background-color: $ash-color;
+        }
+
+        .contact__form {
+            .form-control {
+                background-color: $ash-color;
+            }
+        }
+
+    }
+
+    &--lawyer {
+        .contact__form {
+            .form-control {
+                background-color: $ash-color;
+            }
+        }
+    }
+}
